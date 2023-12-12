@@ -112,9 +112,7 @@ void loadList(string filename, vector<ShapePtr>& shapes) {
 
 // stream insertion operator overload
 ostream& operator<<(ostream& os, const ShapePtr& shape) {
-	os << typeid(*shape).name() + 6 << endl;
-	os << "Perimeter: " << shape->perimeter() << endl;
-	os << "Area: " << shape->area() << endl;
+	os << typeid(*shape).name() + 6 << endl; // Run-Time Type Information (RTTI)
 	return os;
 }
 
@@ -144,7 +142,7 @@ int main(int argc, char* argv[]) {
 	
 	// final outputs
 	for (auto& shape : shapes)
-		cout << typeid(*shape).name() + 6 << endl; // Run-Time Type Information (RTTI)
+		cout << shape;
 	
 	cout << "\nTotal Shapes: " << shapes.size() << endl;
 	cout << "Total Perimeter of all shapes: " << totalPerimeter << endl;
